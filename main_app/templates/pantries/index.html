@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for pantry in pantries %}
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ pantry.name }}</h2>
+        <p>{{ pantry.description }}</p>
+        <p>{{ pantry.location }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
