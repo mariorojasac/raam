@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1> "Welcome To Food Pantry" </h1>
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-2">Welcome To RAAM</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">One Community</h5>
+        </div>
+        <div class="row center">
+          <a href="{% url 'pantries' %}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Open Pantry</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="https://images.pexels.com/photos/7342610/pexels-photo-7342610.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" srcset=""></div>
+  </div>
 {% endblock %}
