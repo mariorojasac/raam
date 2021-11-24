@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>raam.com</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -20,16 +21,15 @@
       <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="#" class="left brand-logo">RAAM</a></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">RAAM</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">All Pantries</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'pantries' %}">All Pantries</a></li>
                     <li><a href="#">Add Pantry</a></li>
                     <li><a href="#">Logout</a></li>
                     <li><a href="#">Login</a></li>
                     <li><a href="#">Signup</a></li>
-                    
                 </ul>
             </div>
         </nav>
@@ -39,8 +39,13 @@
         {% block content %} 
         {% endblock %}
     </main>
-    <footer>
-      <div>All Rights Reserved, &copy; 2021 Car Collector</div>
+    <footer class="page-footer">
+      <div class="footer-copyright">
+            <div class="container">
+            © 2021 Copyright RAAM
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
     </footer>
   </body>
 </html>
