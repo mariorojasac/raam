@@ -1,32 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Pantry
 
 
 
-class Pantry:
-    def __init__(self, name, description, location):
-        self.name = name
-        self.description = description
-        self.location = location
-
-
-pantries = [
-    Pantry('Corey', 'free food', 'Austin'),
-    Pantry('Vernell', 'donated foods', 'Atlanta'),
-    Pantry('Mario', 'free food', 'Indianapolis'),
-    Pantry('Cahyl', 'free food', 'Brooklyn')
-]
-
-
-
-
-
-# Create your views here.
 def home(request):
-    return HttpResponse('Hola')
+    return render(request, 'home.html')
 
 def about(request):
     return render(request, 'about.html')
 
 def pantry_index(request):
+    pantries = Pantry.objects.all()
     return render(request, 'pantries/index.html', { 'pantries': pantries})
+
+def pantry_detail(request, pk):
+    pantry = Pantry.objects.get(pk=pk)
+    return render(request, 'pantries/detail.html', {'pantry': pantry})
+
+
