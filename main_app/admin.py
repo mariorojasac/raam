@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import Pantry, Schedule
 
-# Register your models here.
+
+
+
+
+admin.site.register(Pantry)
+admin.site.register(Schedule)
+
