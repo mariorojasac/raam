@@ -4,13 +4,28 @@ from datetime import date
 
 SERVICES = (
     ('P', 'Pick Up'),
-    ('D', 'Drop Off')
+    ('D', 'Drop Off'),
 )
+
+
+class Food(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=20)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+
+
+
 
 class Pantry(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
     location = models.TextField(max_length=250)
+    foods = models.ManyToManyField(Food)
 
 
     def __str__(self):
