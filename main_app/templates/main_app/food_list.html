@@ -4,7 +4,7 @@
 
 <h1>Foods List</h1>
 
-{% for foods in food_list %}
+{% for food in food_list %}
 <div class="card">
     <a href="{% url 'foods_detail' food.id %}">
         <div class="card-content">
@@ -18,5 +18,4 @@
 {% endfor %}
 
 {% endblock %}
-            
             
