@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Foods List</h1>
+
+{% for foods in food_list %}
+<div class="card">
+    <a href="{% url 'foods_detail' food.id %}">
+        <div class="card-content">
+            <span class="card-title">{{ food.name }}</span>
+            <p>Quantity:{{ food.quantity }}</p>
+            <p>Description:{{ food.description }}</p>
+            
+        </div>
+    </a>
+</div>
+{% endfor %}
+
+{% endblock %}
+            
+            
