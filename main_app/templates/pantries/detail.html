@@ -38,6 +38,11 @@
             </tbody>
         </table>
     </div>
+    <div class="card-action">
+        <a href="{% url 'pantries_update' pantry.id %}"> Edit </a>
+        <a href="{% url 'pantries_delete' pantry.id %}"> Delete </a>
+    </div>
+    
 </div>
         
 </div>
@@ -55,6 +60,7 @@
 
     M.FormSelect.init(selectEl);
 </script>
+
 
 
 {% endblock %}
