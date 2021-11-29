@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Pantry, Schedule
+from .models import Pantry, Schedule, Food
+
 
 
 
@@ -7,4 +8,5 @@ from .models import Pantry, Schedule
 
 admin.site.register(Pantry)
 admin.site.register(Schedule)
+admin.site.register(Food)
 
