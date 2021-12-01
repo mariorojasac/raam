@@ -16,5 +16,6 @@ urlpatterns = [
     path('foods/<int:pk>/update/', views.FoodUpdate.as_view(), name='foods_update'),
     path('foods/<int:pk>/delete/', views.FoodDelete.as_view(), name='foods_delete'),
     path('pantries/<int:pantry_id>/assoc_food/<int:food_id>/', views.assoc_food, name='assoc_food'),
+    path('pantries/<int:pantry_id>/unassoc_food/<int:food_id>/', views.unassoc_food, name='unassoc_food'),
     path('accounts/signup/', views.signup, name='signup'),
 ]
