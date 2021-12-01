@@ -11,15 +11,21 @@
         <p>Location: {{ pantry.location }} </p>
         </div>
         <div class="card-action">
+            {% if user.is_authenticated  %}
             <a href="{% url 'pantries_update' pantry.id %}"> Edit </a>
             <a href="{% url 'pantries_delete' pantry.id %}"> Delete </a>
+            {% else %}
+            {% endif %}
         </div>
 
 <div class="col s6">
         <form action="{% url 'add_schedule' pantry.id %}" method="post">
             {% csrf_token %}
             {{ schedule_form.as_p }}
+            {% if user.is_authenticated  %}
             <input class="btn green" type="submit" value="Add schedule">
+            {% else %}
+            {% endif %}
         </form>
         <table class="striped">
             <thead>
@@ -38,15 +44,51 @@
             </tbody>
         </table>
     </div>
-    <div class="card-action">
-        <a href="{% url 'pantries_update' pantry.id %}"> Edit </a>
-        <a href="{% url 'pantries_delete' pantry.id %}"> Delete </a>
-    </div>
-    
 </div>
-        
-</div>
+<hr />
+<div class="row">
+    <div class="col s6">
+        <h3>{{ pantry.name }}</h3>
+            {% for food in pantry.foods.all %}
+            <a href="{% url 'foods_update' food.id %}">
 
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">{{ food.name }}</span>
+                        <p>Description:{{ food.description }}</p>
+                         <p>Quantity:{{ food.quantity }}</p>
+                         {% if user.is_authenticated  %}
+                         <form action="{% url 'unassoc_food' pantry.id food.id %}" method="delete">
+                             {% csrf_token %}
+                             <button type="submit" class="btn red">Remove</button>
+                         </form>
+                         {% else %}
+                         {% endif %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+    </div>
+</div>
+<hr />
+<div class="col s6">
+    <h3>Inventory</h3>
+        {% for food in foods %}
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">{{ food.name }}</span>
+                        <p>Description:{{ food.description }}</p>
+                        <p>Quantity:{{ food.quantity }}</p>
+                </div>
+                <div class="card-action">
+                    <form action="{% url 'assoc_food' pantry.id food.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn blue">Add To Pantry</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+</div>
 <script>
     const dateEl = document.getElementById('id_date');
     const selectEl = document.getElementById('id_service');
@@ -62,5 +104,5 @@
 </script>
 
 
-
 {% endblock %}
+    

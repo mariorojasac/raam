@@ -24,14 +24,15 @@
                     <li><a href="{% url 'home' %}" class="left brand-logo">RAAM</a></li>
                 </ul>
                 <ul class="right">
-                    {% if user.is_authenticated  %}
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'pantries' %}">All Pantries</a></li>
-                    <li><a href="{% url 'pantries_create'%}">Add Pantry</a></li>
-                    <li><a href="{% url 'foods_create' %}">Add Food</a></li>
-                    <li><a href="{% url 'foods_index' %}">View All Foods</a></li>
-                    <li><a href="#">Logout</a></li>
-                    {% else %}
+                  {% if user.is_authenticated  %}
+                  <li><a href="{% url 'pantries_create'%}">Add Pantry</a></li>
+                  <li><a href="{% url 'foods_create' %}">Add Food</a></li>
+                  <li><a href="{% url 'foods_index' %}">View All Foods</a></li>
+                  <li><a href="{% url 'pantries' %}">All Pantries</a></li>
+                  <li><a href="{% url 'logout' %}">Logout</a></li>
+                  {% else %}
+                  <li><a href="{% url 'pantries' %}">All Pantries</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'signup' %}">Signup</a></li>
                     {% endif %}
@@ -53,4 +54,4 @@
           </div>
     </footer>
   </body>
-</html>
+</html> 
