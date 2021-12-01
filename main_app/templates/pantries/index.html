@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for pantry in pantries %}
+   <a href="{% url 'detail' pantry.id %}">
+    <div class="card" >
+      <div class="container">
+      <div class="row">
+      <div class="col left">
+        <h2>{{ pantry.name }}</h2>
+      </div>
+      <div class="col"></div>
+      <div class="col right">
+        <p>Info: {{ pantry.description }}</p>
+        <p>Location: {{ pantry.location }}</p>
+      </div>
+      </div>
+    </div>
+    </div>
+    </a>
+  {% endfor %}
+{% endblock %}
