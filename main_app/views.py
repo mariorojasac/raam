@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -6,6 +7,7 @@ from .models import Pantry, Food
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ScheduleForm
 
 
@@ -17,8 +19,9 @@ def about(request):
     return render(request, 'about.html')
 
 def pantry_index(request):
-    pantries = Pantry.objects.filter(user=request.user)
-    return render(request, 'pantries/index.html', { 'pantries': pantries})
+    pantries = Pantry.objects.all()
+    return render(request, 'pantries/index.html', { 'pantries': pantries })
+    
 
 def pantry_detail(request, pk):
     pantry = Pantry.objects.get(id=pk)
@@ -36,6 +39,7 @@ def pantry_detail(request, pk):
             'foods': foods_pantry_doesnt_have
         })
 
+@login_required
 def add_schedule(request, pk):
     form = ScheduleForm(request.POST)
     print(form._errors)
@@ -45,10 +49,12 @@ def add_schedule(request, pk):
         new_schedule.save()
     return redirect('detail', pk=pk)
 
+@login_required
 def assoc_food(request, pantry_id, food_id):
     Pantry.objects.get(id=pantry_id).foods.add(food_id)
     return redirect('detail', pk=pantry_id)
 
+@login_required
 def unassoc_food(request, pantry_id, food_id):
     Pantry.objects.get(id=pantry_id).foods.remove(food_id)
     return redirect('detail', pk=pantry_id)
@@ -69,7 +75,7 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-class PantryCreate(CreateView):
+class PantryCreate(LoginRequiredMixin, CreateView):
     model = Pantry
     fields = ('name', 'location', 'description')
 
@@ -78,12 +84,12 @@ class PantryCreate(CreateView):
         return super().form_valid(form)
 
 
-class PantryUpdate(UpdateView):
+class PantryUpdate(LoginRequiredMixin, UpdateView):
     model = Pantry
     fields = ('name', 'location', 'description')
 
 
-class PantryDelete(DeleteView):
+class PantryDelete(LoginRequiredMixin, DeleteView):
     model = Pantry
     success_url = '/pantries/'
 
@@ -93,19 +99,21 @@ class FoodList(ListView):
     model = Food
     template_name = 'main_app/food_list.html'
 
-class FoodDetail(DetailView):
+    
+
+class FoodDetail(LoginRequiredMixin, DetailView):
     model = Food
     template_name = 'main_app/food_detail.html'
     
 
-class FoodCreate(CreateView):
+class FoodCreate(LoginRequiredMixin, CreateView):
     model = Food
     fields = '__all__'
 
-class FoodUpdate(UpdateView):
+class FoodUpdate(LoginRequiredMixin, UpdateView):
     model = Food
     fields = ['name', 'description', 'quantity']
 
-class FoodDelete(DeleteView):
+class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
     success_url = '/foods/'
