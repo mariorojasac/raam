@@ -10,6 +10,10 @@ body {
     flex-direction: column;
 }
 
+nav {
+    color: black;
+}
+
  main {
     flex: 1 0 auto;
     flex-grow: 1;
@@ -20,3 +24,4 @@ footer {
     text-align: right;
     background-color: orange;
 }
+
