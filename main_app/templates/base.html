@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>raam.com</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
@@ -22,6 +21,7 @@
             <div class="nav-wrapper">
                 <ul>
                     <li><a href="{% url 'home' %}" class="left brand-logo black-text"><img src="https://i.imgur.com/e8QVKVh.jpeg" width=60 height="55"></a></li>
+                    <li><a href="{% url 'home' %}" class="center brand-logo orange-text darken-1 hide-on-med-and-down">RAAM</a></li>
                 </ul>
                 <ul class="right">
                   {% if user.is_authenticated  %}
@@ -47,9 +47,8 @@
     </main>
     <footer class="page-footer white">
       <div class="footer-copyright">
-            <div class="container black-text">
+            <div class="container center black-text">
             © 2021 Copyright RAAM
-            <a class="black-text right" href="#!">More Links</a>
             </div>
           </div>
     </footer>
