@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -9,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import ScheduleForm
+
 
 
 
@@ -64,10 +64,10 @@ def signup(request):
     error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('pantries')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
