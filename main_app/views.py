@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -21,7 +20,6 @@ def about(request):
 def pantry_index(request):
     pantries = Pantry.objects.all()
     return render(request, 'pantries/index.html', { 'pantries': pantries })
-    
 
 def pantry_detail(request, pk):
     pantry = Pantry.objects.get(id=pk)
@@ -64,10 +62,10 @@ def signup(request):
     error_message = ''
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('pantries')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
@@ -88,32 +86,24 @@ class PantryUpdate(LoginRequiredMixin, UpdateView):
     model = Pantry
     fields = ('name', 'location', 'description')
 
-
 class PantryDelete(LoginRequiredMixin, DeleteView):
     model = Pantry
     success_url = '/pantries/'
 
 
-
 class FoodList(ListView):
     model = Food
     template_name = 'main_app/food_list.html'
-
-    
-
 class FoodDetail(LoginRequiredMixin, DetailView):
     model = Food
     template_name = 'main_app/food_detail.html'
-    
 
 class FoodCreate(LoginRequiredMixin, CreateView):
     model = Food
     fields = '__all__'
-
 class FoodUpdate(LoginRequiredMixin, UpdateView):
     model = Food
     fields = ['name', 'description', 'quantity']
-
 class FoodDelete(LoginRequiredMixin, DeleteView):
     model = Food
     success_url = '/foods/'

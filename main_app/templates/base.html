@@ -25,10 +25,11 @@
                 </ul>
                 <ul class="right">
                   {% if user.is_authenticated  %}
+                  <li><a href="{% url 'pantries' %}" class="black-text">All Pantries</a></li>
+                  <li><a href="{% url 'foods_index' %}" class="black-text">View All Foods</a></li>
                   <li><a href="{% url 'pantries_create'%}" class="black-text">Add Pantry</a></li>
                   <li><a href="{% url 'foods_create' %}" class="black-text">Add Food</a></li>
-                  <li><a href="{% url 'foods_index' %}" class="black-text">View All Foods</a></li>
-                  <li><a href="{% url 'pantries' %}" class="black-text">All Pantries</a></li>
+                  <li><a href="{% url 'about' %}" class="black-text">About</a></li>
                   <li><a href="{% url 'logout' %}" class="black-text">Logout</a></li>
                   {% else %}
                   <li><a href="{% url 'pantries' %}" class="black-text">All Pantries</a></li>

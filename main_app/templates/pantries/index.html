@@ -1,22 +1,26 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
+<div class="container">
   {% for pantry in pantries %}
-   <a href="{% url 'detail' pantry.id %}">
-    <div class="card" >
+  <a
+    href="{% url 'detail' pantry.id %}"
+    style="text-decoration: none; color: black;">
+  >
+    <div class="card">
       <div class="container">
-      <div class="row">
-      <div class="col left">
-        <h2>{{ pantry.name }}</h2>
-      </div>
-      <div class="col"></div>
-      <div class="col right">
-        <p>Info: {{ pantry.description }}</p>
-        <p>Location: {{ pantry.location }}</p>
-      </div>
+        <div class="row">
+          <div class="col s6">
+            <img style="width: 60%; height: 60%; padding-top: 2rem;" src="https://patch.com/img/cdn/users/14036/2013/03/raw/23563e92c559ea5bbb881d656a8482ab.jpg" alt="food pantry img " srcset="">
+          </div>
+          <div class="col s1"></div>
+          <div class="col s6">
+            <h2 class="orange-text darken-2">{{ pantry.name }}</h2>
+            <p>Info: {{ pantry.description }}</p>
+            <p>Location: {{ pantry.location }}</p>
+          </div>
+        </div>
       </div>
     </div>
-    </div>
-    </a>
-  {% endfor %}
-{% endblock %}
+  </a>
+</div>
+{% endfor %} {% endblock %}
