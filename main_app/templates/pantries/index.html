@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
+{% for pantry in pantries %}
 <div class="container">
-  {% for pantry in pantries %}
   <a
     href="{% url 'detail' pantry.id %}"
     style="text-decoration: none; color: black;">
-  >
+  
     <div class="card">
       <div class="container">
         <div class="row">
