@@ -2,6 +2,8 @@
 Community based, all-in-one app where anyone can create a local food pantry to lend a helping hand to their community or locate a local pantry to donate to or pick up essential items. 
 
 # Check out the app **[here](https://radiant-chamber-29667.herokuapp.com/)**
+# **[Trello Board](https://trello.com/b/1MJnshUf/foodpantryapp)**
+# **[Pitch Deck](https://docs.google.com/presentation/d/1v1HXNX8Qs9L8S-74majJ7ASA_hG-EewnLxAl2vFnsr8/edit?usp=sharing)**
 # Technologies Used
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Postgresql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -14,11 +16,10 @@ Community based, all-in-one app where anyone can create a local food pantry to l
 - [Google Fonts](https://fonts.google.com/)
 - [Pexels](https://www.pexels.com/)
 - [Google Search / Maps](https://developers.google.com/maps/documentation/embed/get-started)
-
 # Screenshots
-![ Screenshots]()
-![ Screenshots]()
-![ Screenshots]()
+![ Screenshots](https://i.imgur.com/1hyO1Mw.png)
+![ Screenshots](https://i.imgur.com/QcWoI8s.png)
+![ Screenshots](https://i.imgur.com/HMe4dzs.png)
 
 # Future Features 
 - Google api search 
