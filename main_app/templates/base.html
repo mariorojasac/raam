@@ -28,7 +28,7 @@
                     <li><a href="{% url 'home' %}" class="center brand-logo orange-text darken-1 hide-on-med-and-down">RAAM</a></li>
                 </ul>
                 <ul class="right">
-                  {% if user.is_authenticated  %}
+                  {% if user.is_authenticated %}
                   <li><a href="{% url 'pantries' %}" class="black-text">All Pantries</a></li>
                   <li><a href="{% url 'foods_index' %}" class="black-text">View All Foods</a></li>
                   <li><a href="{% url 'pantries_create'%}" class="black-text">Add Pantry</a></li>

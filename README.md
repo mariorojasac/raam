@@ -10,18 +10,21 @@ Community based, all-in-one app where anyone can create a local food pantry to l
 ![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
 ![Materialize](https://img.shields.io/badge/-materialize--css-ff69b4?style=for-the-badge&logo=materialize--css&logoColor=white)
 ![Heroku](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)
+## Other Technologies
+- [Google Fonts](https://fonts.google.com/)
+- [Pexels](https://www.pexels.com/)
+- [Google Search / Maps](https://developers.google.com/maps/documentation/embed/get-started)
 
 # Screenshots
 ![ Screenshots]()
 ![ Screenshots]()
 ![ Screenshots]()
 
-## Other Technologies
-- [Google Fonts](https://fonts.google.com/)
-- [Pexels](https://www.pexels.com/)
-- [Google Maps](https://developers.google.com/maps/documentation/embed/get-started)
 # Future Features 
 - Google api search 
+- Photo Uploads
+- Cart / Check out proccess 
+- Real-Time Stock Checker
 
 # How to Contribute 
 Feel free to fork and pull request any ideas , features you have! Approval within 24hrs
